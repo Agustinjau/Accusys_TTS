@@ -40,7 +40,7 @@ const textToSpeechStream = async (req, res) => {
     const response = await text_to_speech_stream(text, apiKey);
 
     // Configurar el encabezado de la respuesta
-    res.setHeader("Content-Type", "audio/mpeg");
+    res.setHeader("Content-Type", "audio/mp3");
 
     // Crear un stream para pasar la respuesta
     response.pipe(res);
