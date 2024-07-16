@@ -1,0 +1,6 @@
+node_modules
+*.oga
+*.mp3
+*.env
+.env
+dist/
