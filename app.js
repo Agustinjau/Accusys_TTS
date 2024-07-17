@@ -11,7 +11,7 @@ const port = process.env.TTS_HOST || 9000;
 (async () => {})();
 
 app.use(express.json());
-app.use(express.static("Accusys_frontStream"));
+app.use(express.static("frontStream"));
 app.use("/tts", speechRoutes);
 
 //error handling

@@ -7,15 +7,14 @@ const fs = require("fs");
 const path = require("path");
 
 const textToSpeech = async (req, res) => {
-  const { text } = req.body;
-  const apiKey = "sk_6baf2b8eefa32e0e42b93f3f54ec67d05f35b9ae31c39543";
+  const { text, apikey, voice_id } = req.body;
   const audiosDir = path.join(__dirname, "..", "audios");
 
   try {
     if (!fs.existsSync(audiosDir)) {
       fs.mkdirSync(audiosDir);
     }
-    const file = await text_to_speech(text, apiKey);
+    const file = await text_to_speech(text, apikey, voice_id);
     const fileName = `${Date.now()}.mp3`;
     const filePath = path.join(audiosDir, fileName);
     fs.writeFileSync(filePath, file);
@@ -32,12 +31,11 @@ const textToSpeech = async (req, res) => {
 };
 
 const textToSpeechStream = async (req, res) => {
-  const { text } = req.body;
-  const apiKey = "sk_0c068eb9a1ee69d72ff77e013fd6d1b537ab3adb7005c197";
+  const { text, apikey, voice_id } = req.body;
 
   try {
     // Configurar la solicitud a ElevenLabs
-    const response = await text_to_speech_stream(text, apiKey);
+    const response = await text_to_speech_stream(text, apikey, voice_id);
 
     // Configurar el encabezado de la respuesta
     res.setHeader("Content-Type", "audio/mp3");

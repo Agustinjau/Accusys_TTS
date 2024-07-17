@@ -1,9 +1,8 @@
 const axios = require("axios");
 const { logger } = require("../controllers/log.controller");
 
-const text_to_speech = async (text, apiKey) => {
+const text_to_speech = async (text, apiKey, voice_id) => {
   try {
-    const voice_id = "QYDWSvRhALSPeQWob56F";
     const options = {
       method: "POST",
       url: `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}`,
@@ -33,9 +32,8 @@ const text_to_speech = async (text, apiKey) => {
   }
 };
 
-const text_to_speech_stream = async (text, apiKey) => {
+const text_to_speech_stream = async (text, apiKey, voice_id) => {
   try {
-    const voice_id = "kwG5kH1yr5eS8nmGJ4Mk";
     const options = {
       method: "POST",
       url: `https://api.elevenlabs.io/v1/text-to-speech/${voice_id}/stream`,

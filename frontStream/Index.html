@@ -78,7 +78,7 @@
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ text: text })
+          body: JSON.stringify({ text: text, apikey: "MY-API-KEY", voice_id:"MY-VOICE-ID" })
         });
 
         console.log('Response received:', response);
